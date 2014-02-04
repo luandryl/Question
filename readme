@@ -1,0 +1,52 @@
+
+Sistema de Avaliação Docente 
+
+-Um pequeno sistema de avaliação docente elaborado para a Etec Jacinto Ferreira de Sá 
+-Não utilizamos nenhum framework pois desenvolvemos em pouco menos de 3 dias apenas para servir de modelo conceitual 
+-Obrigatório a utilização do virtual host da seguinte forma:
+
+<VirtualHost *:80>  
+   ServerName question  
+   DocumentRoot /var/www/question
+   <Directory /var/www/question>  
+      Options FollowSymLinks Indexes MultiViews  
+      AllowOverride All  
+   </Directory>
+   <Files config.ini>
+	Order deny,allow
+	deny from all
+   </Files>  
+ </VirtualHost>
+ 
+- O banco de dados ja está preenchido com algumas inserções de dados;
+
+
+1 - Criar um banco de dados no seu SGBD MySQL com o nome questionbd
+2 -importar o banco de dados "questionbd.sql" que se encontra
+
+question
+ |-questionbd.sql
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 - Alterar as configurações de conexão do banco de dados do arquivo Conn.php
+localizado na pasta 
+
+question
+ |-Model
+   |-Conn.php
+
+
+Alerando da seguinte forma: 
+$conn = new PDO("mysql:host=localhost;dbname=questionbd", "SEU_USUARIO", "SUA_SENHA", array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4 - Alterar o login e a senha do admistrador do sistema no arquivo "config.ini" de acordo com suas preferências
+
+question
+ |-config.ini
+
+
+Por Vinicius Gasparoto e Luan Andryl 
+Em caso de falhas, criticas ou sugestões entrar em contato em luan.andryl@gmail.com ou vinicius_gasparoto@hotmail.com

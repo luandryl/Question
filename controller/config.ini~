@@ -1,0 +1,10 @@
+;Login e senha base do sistema definidos aqui
+[login]
+
+;Login
+login=teste
+
+
+;senha
+senha=123
+
